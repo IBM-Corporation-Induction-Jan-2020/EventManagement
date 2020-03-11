@@ -1,0 +1,57 @@
+<div class="col-md-6" id = "abc">
+    <form class="col s6" #eventCreationForm="ngForm" (ngSubmit)="createEvent()">
+        <div id="event-add-form" class="form-container" data-form-container>
+            <div class="row">
+                <div class="form-title">
+                    <span id="title">New event</span>
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="row">
+                    <span class="req-input">
+                        <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                        <input type="text" required [(ngModel)]="eventForm.eventName" placeholder="Event Name*" name="event_name" id="event_name">
+                    </span>
+                </div> 
+                <div class="row">
+                    <span class="req-input message-box">
+                        <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                        <textarea type="textarea" required [(ngModel)]="eventForm.eventDesc" placeholder="Event Description*" name="event_desc" id="event_desc" ></textarea>
+                    </span>
+                </div>
+                
+                <div class="row">
+                    <span class="req-input">
+                        <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                        <input type="text" required [(ngModel)]="eventForm.eventCategory" placeholder="Category*" name="event_category" id="event_category">
+                    </span>
+                </div>
+                
+                <div class="row">
+                    <span class="req-input">
+                        <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                        <input type="text" required [(ngModel)]="eventForm.eventVenue" placeholder="Event Venue*" name="event_venue" id="event_venue">
+                    </span>
+                </div>
+                
+                <div class="row">
+                    <span class="req-input" style="width:100%">
+                        <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                        <input type="Date" required [(ngModel)]="eventForm.eventDate" placeholder="Event Date*" name="event_date" id="event_date" >
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="req-input">
+                        <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                        <input type="text" required [(ngModel)]="eventForm.organizerId" placeholder="Event Organizer id" name="organizer_id" id="organizer_id" >
+                    </span>
+                </div>
+                <div class="row submit-row">
+                    <button type="submit" class="btn btn-block submit-form" [disabled]="!eventCreationForm.form.valid">Submit</button>
+                </div>
+                <p>Result Message will Appear here {{message}}</p>
+            </div>
+        </div>
+    </form>
+</div>
+

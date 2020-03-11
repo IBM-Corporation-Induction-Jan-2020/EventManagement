@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light" role="navigation" style="background: #41BEE7;" >
+    
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> 
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/userevents" routerLinkActive="active">Home<span class="sr-only">(active)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/hostevent" routerLinkActive="active" >Host a Event<span class="sr-only">(active)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about" routerLinkActive="active">About Us<span class="sr-only">(active)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active" >Contact Us<span class="sr-only">(active)</span></a>
+      </li>
+     
+    </ul>
+  </div>
+  <form class="form-inline">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link mr-sm-2" href="/Login" style="align-items: right">Login</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link my-2 my-sm-0" href="#" tabIndex="-1" >Admin</a>
+      </li> -->
+     </ul> 
+  </form>
+</nav>
+<router-outlet></router-outlet>

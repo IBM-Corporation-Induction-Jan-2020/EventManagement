@@ -1,0 +1,25 @@
+<admin></admin>
+<div class="col-md-6" id="abc">
+  <form class="col s6" #eventCreationForm="ngForm" (ngSubmit)="deleteEvent()">
+    <div id="event-add-form" class="form-container" data-form-container>
+      <div class="row">
+        <div class="form-title">
+          <span id="title">Delete event</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="row">
+          <span class="req-input">
+            <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+            <input type="text" [(ngModel)]="event_id" placeholder="Event Id" name="event_id" id="event_id">
+          </span>
+        </div>
+        <br><br>
+        <div class="row submit-row">
+          <button type="submit" class="btn btn-primary" style="width: 600px;">Delete</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

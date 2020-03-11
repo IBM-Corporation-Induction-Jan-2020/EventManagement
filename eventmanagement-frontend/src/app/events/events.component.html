@@ -1,0 +1,10 @@
+<admin></admin>
+<h1>All Events</h1>
+<div class="container">
+    <div class="row" style="padding-left: 40px;">
+        <div *ngFor="let eve of events">
+            <display-current-event-details [eventDetails]="eve">
+            </display-current-event-details>
+        </div>
+    </div>
+</div>

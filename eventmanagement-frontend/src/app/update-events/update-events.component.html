@@ -1,0 +1,76 @@
+<admin></admin>
+<div class="col-md-6" id="abc">
+    <form class="col s6" #eventCreationForm="ngForm" (ngSubmit)="UpdateEvent()">
+        <div id="event-add-form" class="form-container" data-form-container>
+            <div class="row">
+                <div class="form-title">
+                    <span id="title">Update event</span>
+                </div>
+            </div>
+
+            <form class="col s6" #eventUpdationForm="ngForm" (ngSubmit)="fetchEvent()">
+                <div class="row">
+                    <span class="req-input">
+                        <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                        <input type="text" [(ngModel)]="event_id" placeholder="Event Id" name="event_id" id="event_id">
+                    </span>
+                </div>
+                <br><br>
+                <div class="row submit-row">
+                    <button type="submit" class="btn btn-primary" style="width: 400px;">Fetch Details</button>
+                </div>
+
+            </form>
+
+
+
+
+            <div class="input-container">
+                <div class="row">
+                    <span class="req-input">
+                        <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                        <input type="text" [(ngModel)]="event_new.eventName" placeholder="Event Name" name="event_name"
+                            id="event_name">
+                    </span>
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <span class="req-input message-box">
+                    <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                    <textarea type="textarea" [(ngModel)]="event_new.eventDesc" placeholder="Event Desc"
+                        name="event_desc" id="event_desc"></textarea>
+                </span>
+            </div>
+
+            <div class="row">
+                <span class="req-input">
+                    <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                    <input type="text" [(ngModel)]="event_new.eventCategory" placeholder="Category"
+                        name="event_category" id="event_category">
+                </span>
+            </div>
+
+            <div class="row">
+                <span class="req-input">
+                    <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                    <input type="text" [(ngModel)]="event_new.eventVenue" placeholder="Venue" name="event_venue"
+                        id="event_venue">
+                </span>
+            </div>
+
+            <div class="row">
+                <span class="req-input" style="width:100%">
+                    <span class="input-status" data-toggle="tooltip" data-placement="top"> </span>
+                    <input type="Date" [(ngModel)]="event_new.eventDate" placeholder="Date" name="event_date"
+                        id="event_date">
+                </span>
+            </div>
+            <div class="row submit-row">
+                <button type="submit" class="btn btn-block submit-form">Update Event Details</button>
+            </div>
+        </div>
+    </form>
+</div>
