@@ -26,7 +26,7 @@ export class AdminLoginComponent implements OnInit {
      this.router.navigateByUrl("/admin-login")
   }else
   {
-    this.router.navigateByUrl("/admin")  
+    this.router.navigateByUrl("/events")  
     //console.log("After navigating"+this.login_emp_id)
   } 
     });

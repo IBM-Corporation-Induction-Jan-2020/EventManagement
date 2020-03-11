@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,26 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'ProjectEMS';
-  constructor(private httpClient: HttpClient) { }
+ condition=true
+  constructor(private httpClient: HttpClient,private router:Router) { 
+   
+  
+  }
+  userlogin()
+  {  
+    console.log("Login called")
+    this.router.navigateByUrl("/Login")
+    this.condition=false;
+
+  }
+  usersignout()
+  {
+    console.log("signout called")
+    localStorage.removeItem("login_id")
+    this.condition=true
+  this.router.navigateByUrl("/userevents")
+    
+  }
 
   selectedFile: File;
   retrievedImage: any;

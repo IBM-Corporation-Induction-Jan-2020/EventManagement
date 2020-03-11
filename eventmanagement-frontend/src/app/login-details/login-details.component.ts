@@ -15,9 +15,11 @@ export class LoginDetailsComponent implements OnInit {
   checkEmp:boolean=true;
   employee:Employee=new Employee("","","","","");
   message: any;
-  login_emp_id: string="sushmatn@gmail.com";
+  //login_emp_id: string="sushmatn@gmail.com";
   constructor(private empService: EmployeeService,private router: Router) { }
   setLoginCred(){
+    localStorage.setItem("login_id",this.employee.employee_id)
+    console.log("from login.ts"+localStorage.getItem("login_id"))
     this.empService.checkforUser(this.employee).subscribe(
       response => {
   this.message=response;
@@ -28,10 +30,7 @@ export class LoginDetailsComponent implements OnInit {
   }else
   {
     this.router.navigateByUrl("/userevents")
-    console.log("Before --"+this.login_emp_id)
-    this.login_emp_id=this.employee.employee_id;
-    
-    console.log("After navigating"+this.login_emp_id)
+      
   } 
     });
   

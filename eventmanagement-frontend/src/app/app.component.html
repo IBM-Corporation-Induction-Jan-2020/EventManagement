@@ -22,9 +22,22 @@
   </div>
   <form class="form-inline">
   <ul class="navbar-nav">
-    <li class="nav-item">
-        <a class="nav-link mr-sm-2" href="/Login" style="align-items: right">Login</a>
+    <div *ngIf="condition; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <li class="nav-item">
+        <a class="nav-link mr-sm-2" (click)="userlogin()"  style="align-items: right">Login</a>
       </li>
+      
+    </ng-template>
+    <ng-template #elseBlock>
+            <li class="nav-item">
+        <a class="nav-link mr-sm-2"  (click)="usersignout()" style="align-items: right">Signout</a>
+      </li>
+
+    </ng-template>
+    
+   
+     
       <!-- <li class="nav-item">
         <a class="nav-link my-2 my-sm-0" href="#" tabIndex="-1" >Admin</a>
       </li> -->

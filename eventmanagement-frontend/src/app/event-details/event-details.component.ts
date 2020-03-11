@@ -19,7 +19,7 @@ employee_id:string;
   message: String;
   success: String;
    constructor(private router:Router,private route:ActivatedRoute, private eventService:AdminService, private empService:EmployeeService) {
-
+    console.log("from event details.ts"+localStorage.getItem("email"))
    this.route.params.subscribe(params => {
      this.eventId = params.evId;
    });
@@ -35,7 +35,11 @@ employee_id:string;
     bookEvent()
     { console.log("msbc"+this.eventId) 
     console.log()
-    this.employee_id="sushmatn@gmail.com";
+    this.employee_id= localStorage.getItem("login_id")
+    if(this.employee_id==null)
+    {
+         this.router.navigateByUrl("/Login")
+    }else{
     this.login_event_id=this.events.eventId;
     this.eventService.bookevent(this.employee_id,this.login_event_id).subscribe(response => {   this.message=response;
       console.log(response);
@@ -46,6 +50,7 @@ employee_id:string;
       } );
          console.log("Booking Eventt")
     }
+  }
    ngOnInit(): void {
   //  this.event=this.details[this.eventId-1]
   //    this.emp=this.employees[this.event.organizerId -1]
