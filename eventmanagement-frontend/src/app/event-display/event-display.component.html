@@ -1,19 +1,9 @@
-<!-- <div class="jumbotron text-center">
-    <h1>Welcome to 'name'</h1>
-    <p>where the fun begins</p>
-</div> 
-<div class="container">
-    <div class="row " style="padding-left: 40px;">
-       
-    </div>
-</div>  -->
 <h1 align='center'>Welcome</h1>
 <div class="container">
     <div class="row" style="padding-left: 40px;">
         <div *ngFor="let events of allEvents">
-            <display-unrelated-events
-                     [eventDetails]="events">
+            <display-unrelated-events [eventDetails]="events">
             </display-unrelated-events>
-                </div>
+        </div>
     </div>
 </div>

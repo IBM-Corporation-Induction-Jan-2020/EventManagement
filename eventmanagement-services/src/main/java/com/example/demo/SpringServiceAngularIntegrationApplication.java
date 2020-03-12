@@ -58,12 +58,7 @@ public class SpringServiceAngularIntegrationApplication {
 		
 		return sql.fetchEvents();
 		
-		/*return Arrays.asList(new Event(1,"Womens Day","Respect","Fun","Bangalore","07/08/1998",100,true,111),
-				new Event(1,"Womens Day","Respect","Fun","Bangalore","07/08/1998",100,true,111),
-				new Event(1,"Womens Day","Respect","Fun","Bangalore","07/08/1998",100,true,111),
-				new Event(1,"Womens Day","Respect","Fun","Bangalore","07/08/1998",100,true,111),
-				new Event(1,"Womens Day","Respect","Fun","Bangalore","07/08/1998",100,true,111));*/
-	}
+		}
 	@PostMapping("/login")
 	public String logincheck(@RequestBody Employee employee)
 	{
@@ -134,55 +129,7 @@ public class SpringServiceAngularIntegrationApplication {
 	{ System.out.println("Called pending requests service");
 		return new AccessSqlDatabase().fetctRequestedPendingEvents();
 	}
-	@PostMapping("/imageupload")
-	public String uplaodImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
 
-		System.out.println("Original Image Byte Size - " + file.getBytes().length);
-//		ImageModel img = new ImageModel(file.getOriginalFilename(), file.getContentType(),
-//				compressBytes(file.getBytes()));
-//		imageRepository.save(img);
-		System.out.println("Called image upload service...");
-		System.out.println(file.getBytes());
-		new AccessSqlDatabase().storeImage(file.getBytes());
-		return "Image got successfully inserted";
-	}
-	@GetMapping(path = { "image/get/{imageName}" })
-	public List<Image> getImage(@PathVariable("imageName") int imageName) throws IOException {
-
-		System.out.println("get image service is calledd");
-		return new AccessSqlDatabase().getImage(imageName);
-	}
-	
-}
-class Image
-{
-	int image_id;
-	byte[] image;
-	public Image() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Image(int image_id, byte[] image) {
-		super();
-		this.image_id = image_id;
-		this.image = image;
-	}
-	public int getImage_id() {
-		return image_id;
-	}
-	public void setImage_id(int image_id) {
-		this.image_id = image_id;
-	}
-	public byte[] getImage() {
-		return image;
-	}
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
-	@Override
-	public String toString() {
-		return "Image [image_id=" + image_id + ", image=" + Arrays.toString(image) + "]";
-	}
 	
 }
 

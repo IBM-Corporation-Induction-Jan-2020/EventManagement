@@ -47,10 +47,6 @@ public class AccessSqlDatabase {
 			return "failure";
 		
 		KeyHolder keyHolder = new GeneratedKeyHolder();
-		//ApplicationContext ac = new AnnotationConfigApplicationContext(SQLConfig.class);
-		//JdbcTemplate jtemplate = ac.getBean(JdbcTemplate.class);
-		// Object[] params = new Object[]
-		// {event.eventName,event.eventDesc,event.eventCategory,event.eventVenue,event.eventDate,0,event.organizerId,true};
 		String sql = "INSERT INTO events(event_name,event_description,event_category,event_venue,event_date,eventnumber_of_registrations,organizer_id,is_active) VALUES (?,?,?,?,?,?,?,?);";
 		Connection con;
 		jtemplate.update(connection -> {
@@ -95,44 +91,8 @@ public class AccessSqlDatabase {
 
 	}
 
-	public void storeImage(byte[] file) {
-		ApplicationContext ax = new AnnotationConfigApplicationContext(SQLConfig.class);
-		JdbcTemplate jtemplate = ax.getBean(JdbcTemplate.class);
 
-		String sql = "INSERT INTO image_store(image_id,image) VALUES (?,?);";
-		Connection con;
-		jtemplate.update(connection -> {
-			PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sql,
-					Statement.RETURN_GENERATED_KEYS);
-			ps.setInt(1, 1);
-			ps.setBytes(2, file);
-			;
 
-			return ps;
-		});
-		System.out.println("Event Data inserted successfully!!!");
-	}
-
-	public List<Image> getImage(int imageName) {
-		ApplicationContext ax = new AnnotationConfigApplicationContext(SQLConfig.class);
-		JdbcTemplate jtemplate = ax.getBean(JdbcTemplate.class);
-		Object[] params = new Object[] { imageName };
-		List<Image> images = jtemplate.query("select * from image_store where image_id=?", params,
-
-				new RowMapper<Image>() {
-					@Override
-					public Image mapRow(ResultSet rs, int rowNum) throws SQLException {
-						Image image = new Image();
-						image.setImage_id(rs.getInt("image_id"));
-						image.setImage(rs.getBytes("image"));
-
-						return image;
-
-					}
-				});
-		return images;
-
-	}
 
 	public String deleteEvent(int event_id) {
 		ApplicationContext ax = new AnnotationConfigApplicationContext(SQLConfig.class);
